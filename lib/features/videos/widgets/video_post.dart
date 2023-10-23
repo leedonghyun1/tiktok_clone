@@ -76,6 +76,9 @@ class _VideoPostState extends State<VideoPost>
         !_videoPlayerController.value.isPlaying) {
       _videoPlayerController.play();
     }
+    if (_videoPlayerController.value.isPlaying && info.visibleFraction == 0) {
+      _onTogglePause();
+    } // if video is not visible, change to pause state.
   }
 
   void _onTogglePause() {
@@ -97,6 +100,7 @@ class _VideoPostState extends State<VideoPost>
     }
     await showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       barrierColor: const Color.fromRGBO(0, 0, 0, 0.6),
       builder: (context) => const VideoComment(),
     );
