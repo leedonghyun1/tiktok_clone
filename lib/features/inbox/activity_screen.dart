@@ -89,6 +89,8 @@ class _ActivityScreenState extends State<ActivityScreen>
         title: GestureDetector(
           onTap: _toggleAnimations,
           child: Row(
+            mainAxisSize: MainAxisSize
+                .min, // 이전화면에서 Activity 화면으로 넘어왔을 때 AppBar의 레이아웃이 무너지는 것 수정.
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
